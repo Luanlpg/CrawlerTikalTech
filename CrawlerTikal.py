@@ -1,7 +1,7 @@
 import urllib.request
 
 print('>>>>LISTA DE MÚSICAS<<<<')
-x = str(input('Digite o nome da banda usando "-" ao invés de espaços: ').lower())
+x = str(input('Digite o nome da banda: ').lower())
 while (' ' in x): # laço para substituir caractere
             x = x.replace(' ', '-')
 texto = ''
