@@ -7,29 +7,42 @@ while (' ' in x): # laço para substituir caractere
 texto = ''
 
 
-def Solicita_banda(x = x):    #cria url em str
+def Solicita_banda(x = x): 
+    """
+    cria url em str
+    """
     banda = 'https://www.vagalume.com.br/'+x+'/'
     return banda
 
 
-def tratarY (x = x):#cria str para alteração no texto
+def tratarY (x = x):
+    """
+    cria str para alteração no texto
+    """
     y = 'href="/'+x+'/' 
     return y
 
 
-def requisicaolista(banda = Solicita_banda()):#utiliza url para requisição de dados em página HTML
-    content = urllib.request.urlopen(banda).read()#acessa a url e lê a página html
-    content = str(content)#transforma o html em str
-
-    while (tratarY() in content): # laço para substituir caractere
+def requisicaolista(banda = Solicita_banda()):
+    """
+    utiliza url para requisição de dados em página HTML
+    """
+    #acessa a url e lê a página html
+    content = urllib.request.urlopen(banda).read()
+    #transforma o html em str
+    content = str(content)
+    # laço para substituir caractere
+    while (tratarY() in content):
             content = content.replace(tratarY(), '¬¬')
-    while ('.html" data-song=' in content): # laço para substituir caractere
+    # laço para substituir caractere
+    while ('.html" data-song=' in content): 
             content = content.replace('.html" data-song=', '¬¬')
-    while ('-' in content): # laço para substituir caractere
+    # laço para substituir caractere
+    while ('-' in content): 
             content = content.replace('-', ' ')
 
-
-    texto = content.split('¬¬')#cortando espaços e transformando str em lista
+    #cortando espaços e transformando str em lista
+    texto = content.split('¬¬')
 
 
     x = len(texto)#contar elementos da lista
